@@ -1,0 +1,19 @@
+name: Run Jest tests
+
+on:
+  pull_request:
+
+jobs:
+  tsc:
+    name: jest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: install node v12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: npm install
+        run: npm install --force
+      - name: run test suite
+        run: npm test

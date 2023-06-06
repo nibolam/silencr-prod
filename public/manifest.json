@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Silencr-Prod",
+  "description": "Auto mute streaming TV ads",
+  "version": "0.2",
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.tv.youtube.com/*",
+        "https://*.watch.sling.com/*",
+        "https://*.hulu.com/*",
+        "https://*.fubo.tv/*",
+        "https://*.philo.com/*",
+        "https://*.streamtv.directv.com/*"
+      ],
+      "js": ["platformContentScript.js"]
+    }
+  ],
+  "commands": {
+    "toggle": {
+      "description": "Toggle volume adjustment",
+      "suggested_key": {
+        "default": "Alt+M"
+      }
+    }
+  },
+  "permissions": ["scripting", "storage"],
+  "host_permissions": ["<all_urls>"]
+}

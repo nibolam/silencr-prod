@@ -1,0 +1,30 @@
+.config-label {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+  width: 300px;
+}
+
+.config-checkbox {
+  width: 1rem;
+  height: 1rem;
+}
+
+.popup-header {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.popup-subheader {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.action-body {
+  background-color: lightgray;
+}
