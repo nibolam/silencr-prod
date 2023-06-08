@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: install node v12
-        uses: actions/setup-node@v1
-        with:
-          node-version: 16
       - name: npm install
         run: npm install --force
       - name: compile extension
@@ -20,9 +16,3 @@ jobs:
           cd src
           npm run build
           cd ..
-      - name: compile node files
-        run: |
-          cd training/src
-          npm i
-          npm run build
-          cd ../..
