@@ -1,7 +1,7 @@
 import { TabMessage } from "../tab-messsage";
 import { initializeModels } from "./tf-models";
 import { toggle } from "./update-volume";
-import { ENABLE_UPDATES_ON_LOAD } from "../dev-flags";
+import { DISABLE_UPDATES_ON_LOAD } from "../dev-flags";
 
 async function main() {
   // Initialize CV models
@@ -10,8 +10,8 @@ async function main() {
   // Initialize this as the "active" tab for the extension
   chrome.runtime.sendMessage(TabMessage.Init);
 
-  // Toggle volume updates
-  if (ENABLE_UPDATES_ON_LOAD) toggle(true);
+  // Force status updates to off state
+  if (DISABLE_UPDATES_ON_LOAD) toggle(true);
 }
 
 chrome.runtime.onMessage.addListener((message) => {
