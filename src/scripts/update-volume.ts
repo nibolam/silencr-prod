@@ -15,9 +15,9 @@ var prevTag: ClassifierCategory;
 /**
  * Toggles mute status updates & unmutes the tab when toggling off.
  *
- * @param idempotentOn If true we force the toggle to the on state.
+ * @param idempotentOff If true we force the toggle to the off state.
  */
-export async function toggle(idempotentOn: boolean = false) {
+export async function toggle(idempotentOff: boolean = false) {
   let updatesEnabled: boolean = await chrome.storage.local
     .get()
     .then((settings) => {
@@ -28,8 +28,8 @@ export async function toggle(idempotentOn: boolean = false) {
       }
     });
 
-  // Force toggle to on state
-  if (idempotentOn) updatesEnabled = false;
+  // Force toggle to off state
+  if (idempotentOff) updatesEnabled = true;
   clearInterval(loopIntervalTimer);
 
   if (updatesEnabled) {

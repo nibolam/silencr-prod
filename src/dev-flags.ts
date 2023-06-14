@@ -4,9 +4,9 @@
 export const ENABLE_VERBOSE_LOGGING = false;
 
 /**
- * Enables mute status updates on loading a page on a supported platform
+ * Disables mute status updates on loading a page on a supported platform
  */
-export const ENABLE_UPDATES_ON_LOAD = true;
+export const DISABLE_UPDATES_ON_LOAD = true;
 
 /**
  * Milliseconds between mute status updates
