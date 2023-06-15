@@ -11,9 +11,9 @@ const MOBILE_NET_INPUT_HEIGHT = 224;
 const CLASS_NAMES = [ClassifierCategory.Ad, ClassifierCategory.Negative];
 
 const MOBILENET_MODEL_URL =
-  "https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_small_100_224/feature_vector/5/default/1";
+  "https://tfhub.dev/google/tfjs-model/imagenet/mobilenet_v3_large_100_224/feature_vector/5/default/1";
 const AZURE_MODEL_URL =
-  "https://silencrmodelstore.blob.core.windows.net/all-sport-model/model.json";
+  "https://silencrmodelstore.blob.core.windows.net/all-sport-model/model002.json";
 
 let mobilenet: tf.GraphModel;
 let model: tf.Sequential;
