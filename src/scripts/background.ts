@@ -13,7 +13,7 @@ chrome.runtime.onMessage.addListener((message, sender, res) => {
   if (sender.tab?.id === undefined) return;
   const tabId: number = sender.tab.id;
 
-  if (message === TabMessage.Classify) {
+  if (message === TabMessage.Classify && sender.tab.active) {
     chrome.tabs
       .captureVisibleTab(sender.tab.windowId, { format: "jpeg" })
       .then((image) => {
