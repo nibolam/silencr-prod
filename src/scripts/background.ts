@@ -13,13 +13,18 @@ chrome.runtime.onMessage.addListener((message, sender, res) => {
   if (sender.tab?.id === undefined) return;
   const tabId: number = sender.tab.id;
 
-  if (message === TabMessage.Classify && sender.tab.active) {
-    chrome.tabs
-      .captureVisibleTab(sender.tab.windowId, { format: "jpeg" })
-      .then((image) => {
-        res(image);
-      });
-    return true;
+  if (message === TabMessage.Classify) {
+    if (sender.tab.active) {
+      chrome.tabs
+        .captureVisibleTab(sender.tab.windowId, { format: "jpeg" })
+        .then((image) => {
+          res(image);
+        });
+      return true;
+    } else {
+      // Don't capture if the platform tab is inactive
+      res(null);
+    }
   } else if (message === TabMessage.Init) {
     chrome.storage.local.set({ activeTabId: `${tabId}` });
   } else if (message === TabMessage.Mute) {
