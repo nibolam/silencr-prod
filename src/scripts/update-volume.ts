@@ -9,6 +9,7 @@ import { UPDATE_INTERVAL_MILLIS } from "../dev-flags";
 import { updateFunction } from "./update-function";
 
 const HIGH_CONFIDENCE_THRESHOLD = 0.975;
+const encodingErrorName = "EncodingError";
 var loopIntervalTimer: NodeJS.Timeout;
 var prevTag: ClassifierCategory;
 
@@ -96,7 +97,15 @@ export function meetsSwitchThreshold(
 }
 
 function updateVolume() {
-  updateFunction().then((response) => {
-    sendMuteStateMessage(response);
-  });
+  updateFunction()
+    .then((response) => {
+      sendMuteStateMessage(response);
+    })
+    .catch((error) => {
+      // These are known & expected errors that have no known customer impact.
+      // They occur when users switch the activeTab away from the platform tab
+      if (error.name !== encodingErrorName) {
+        throw error;
+      }
+    });
 }
