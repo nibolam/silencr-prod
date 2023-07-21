@@ -15,5 +15,5 @@ Until the extension is published to the Chrome web store, the easiest way to ins
 
 ## Use
 
-- Silencr will automatically run in the background on supported streaming live TV sites.
-- To stop mute updates for the current session use the keyboard shortcut Alt+M. Hitting Alt+M again will resume mute updates.
+- On a supported streaming site, enable the extension by clicking on the extension icon then checking the box shown in the popup. Pressing Alt+M will also enable the extension. 
+- To stop mute updates, uncheck the box in the pop or press Alt+M.
